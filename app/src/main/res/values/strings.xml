@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TastyTips</string>
+    <string name="Menu">Menu</string>
+    <string name="Hello">Hello</string>
+    <string name="Foodie">Foodie!</string>
+    <string name="Search_text">Which Food Would You Like To Cook?</string>
+    <string name="Search_recipe">Search Recipe</string>
+    <string name="Categories">Categories</string>
+    <string name="Popular_recipes">Popular Recipes</string>
+    <string name="image_recipe">Image recipe</string>
+</resources>
