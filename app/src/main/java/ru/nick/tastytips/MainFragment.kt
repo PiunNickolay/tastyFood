@@ -110,7 +110,6 @@ class MainFragment : Fragment() {
             }
 
             recipe.observe(viewLifecycleOwner) { list ->
-//                recipesAdapter.submitList(list)
                 Log.d("UI", "observer received ${list?.size} recipes")
                 recipesAdapter.submitList(list)
             }
