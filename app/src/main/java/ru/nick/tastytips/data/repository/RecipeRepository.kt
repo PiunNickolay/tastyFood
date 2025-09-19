@@ -9,10 +9,6 @@ import ru.nick.tastytips.domain.model.RecipeDetail
 import ru.nick.tastytips.data.mappers.*
 
 class RecipeRepository(private val api: SpoonacularApi) {
-//    suspend fun getRandomRecipes() : List<Recipe> {
-//        return api.getRandomRecipes().recipes.map { dto -> dto.toDomain() }
-//    }
-
     suspend fun getRandomRecipes(): List<Recipe> {
         return try {
             val resp = api.getRandomRecipes()
@@ -26,23 +22,11 @@ class RecipeRepository(private val api: SpoonacularApi) {
         }
     }
 
-//    suspend fun getRecipesByCategory(categoryId: String): List<Recipe> {
-//        return api.getRecipesByCategory(type = categoryId).results.map { dto ->
-//            Recipe(
-//                id = dto.id,
-//                title = dto.title,
-//                subtitle = "Category: $categoryId",
-//                imageUrl = dto.image
-//            )
-//        }
-//    }
-
     suspend fun getRecipesByCategory(categoryId: String): List<Recipe> {
         return try {
-            val resp = api.getRecipesByCategory(type = categoryId) // ComplexSearchResponse
+            val resp = api.getRecipesByCategory(type = categoryId) 
             Log.d("REPO", "getRecipesByCategory raw results size = ${resp.results.size}")
             val mapped = resp.results.map { dto ->
-                // если у тебя RecipeSearchDto -> map вручную
                 Recipe(id = dto.id, title = dto.title, subtitle = "Category: $categoryId", imageUrl = dto.image)
             }
             Log.d("REPO", "getRecipesByCategory mapped size = ${mapped.size}")
