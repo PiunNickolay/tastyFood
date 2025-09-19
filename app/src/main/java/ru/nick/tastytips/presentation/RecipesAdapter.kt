@@ -37,8 +37,6 @@ class RecipesViewHolder(
     fun bind(item: Recipe) {
         binding.apply {
             recipeTitle.text = item.title.ifBlank { "NO TITLE" }
-
-            // используем только subtitle, потому что readyInMinutes у Recipe нет
             recipeSubtitle.text = item.subtitle ?: "No subtitle"
 
             Glide.with(recipeImage)
@@ -46,7 +44,6 @@ class RecipesViewHolder(
                 .placeholder(R.drawable.ic_placeholder_24)
                 .into(recipeImage)
 
-            // тест: жёстко дописываем CARD для проверки
             recipeTitle.text = "CARD: ${item.title}"
 
             root.setOnClickListener {
